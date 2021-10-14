@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif !important;
+}
+
+
+.imgavatar{
+    height: 50px;
+}
+
+h1{
+    text-align: center;
+    font-weight: 700;
+    margin-top: 50px;
+}
+
+.primary-color, ul.stepper li.active a .circle, ul.stepper li.completed a .circle{
+    background-color: #004079  !important;
+}
+
+select{
+    width: 100%;
+    padding: 5px;
+    margin-top: -15px;
+}
+
+.card{
+    margin-top: 50px;
+}
+
+footer{
+
+    padding: 50px;
+    text-align: center;
+}

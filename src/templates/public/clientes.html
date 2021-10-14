@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %} - Clientes {% endblock %}
+
+
+{% block content %}
+    <h1>Clientes</h1>
+
+<main id="main">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-lg-12 d-flex">
+                <div id="content-main" class="justify-content-center align-self-center mx-auto my-5">
+                    <div class="card">
+
+                        <div class="card-header text-center">
+                            <h2>Crear Nuevo Cliente</h2>
+                        </div>                       
+                    
+                        <div class="card-body">
+                            <form action="/clientes" method="POST" class="px-5">
+                                <div class="md-form row">
+                                    <div class="col-lg-6">
+                                        <input type="number" name="docIdentidad" class="form-control" id="codeInput" required autofocus>
+                                        <label for="codeInput">Documento de identidad</label>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input type="text" name="nombre" class="form-control" id="nameInput" required autofocus>
+                                        <label for="nameInput">Nombre</label>
+                                    </div>
+                                    <div class="col-lg-6 mt-3">
+                                        <input type="number" name="telefono" class="form-control" id="telefonoInput" required autofocus>
+                                        <label for="telefonoInput">Telefono</label>
+                                    </div>
+                                    <div class="col-lg-6 md-form text-center">
+                                        <select name="departamento_idDepartamento" id="departamentoInput" class="mdb-select">
+                                            <option selected>Seleccionar Departamento</option>
+                                            {% for departamento in departamentos %}
+                                                <option value="{{departamento.0}}">{{departamento.1}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>                            
+                                    <div class="md-form col-lg-12">
+                                        <textarea name="datos" id="defaultForm-description" class="md-textarea form-control"></textarea>
+                                        <label data-error="wrong" data-success="right" for="defaultForm-description">Datos del cliente</label>
+                                      </div>
+                                </div>                                
+                         
+                                <div class="md-form">
+                                    <button class="btn btn-primary btn-block">
+                                        Crear Cliente <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<section>
+    <h1>Listado de Clientes</h1>
+    <div class="container">
+        <div class="row">
+            <table class="table table-hover table-fixed">
+                <thead>
+                  <tr>
+                    <th>Documento</th>
+                    <th>Nombre</th>
+                    <th>Telefono</th>
+                    <th>Datos</th>
+                    <th>Departamento</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                  </tr>
+                </thead>
+            
+                <tbody>
+                 {% for cliente in clientes %}  
+                  <tr>
+                    <th scope="row">{{cliente.0}}</th>
+                    <td>{{cliente.1}}</td>
+                    <td>{{cliente.2}}</td>
+                    <td>{{cliente.3}}</td>
+                    <td>{{cliente.4}}</td>
+                    <td><a href="/update/clientes/{{cliente.0}}" type="button" class="btn btn-green btn-rounded">Editar</a></td>
+                    <td>
+                        <form action="/delete/clientes/{{cliente.0}}" method="POST">
+                            <button type="submit" class="btn btn-red btn-rounded">Eliminar</button>
+                        </form>
+                    </td>
+                    
+                  </tr>
+                  {% endfor %}
+                </tbody>  
+              
+              </table>
+            
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %} - Grupo de Trabajo {% endblock %}
+
+
+{% block content %}
+    <h1>Grupo de Trabajo</h1>
+
+
+<main id="main">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-lg-12 d-flex">
+                <div id="content-main" class="justify-content-center align-self-center mx-auto my-5">
+                    <div class="card">
+
+                        <div class="card-header text-center">
+                            <h2>Crear Nuevo Trabajador</h2>
+                        </div>                       
+                    
+                        <div class="card-body">
+                            <form action="/grupotrabajo" method="POST" class="px-5">
+                                <div class="md-form row">
+                                    <div class="col-lg-4">
+                                        <input type="number" name="docIdentidad" class="form-control" id="codeInput" required autofocus>
+                                        <label for="codeInput">Documento de Identidad</label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <input type="text" name="nombre" class="form-control" id="nameInput" required autofocus>
+                                        <label for="nameInput">Nombre</label>
+                                    </div>                                    
+                                    <div class="col-lg-4">
+                                        <input type="text" name="apellido" class="form-control" id="apellidoInput" required autofocus>
+                                        <label for="apellidoInput">Apellido</label>
+                                    </div>                                    
+                     
+                                    <div class="col-lg-12 md-form text-center">
+                                        <select name="Departamento_idDepartamento" id="departamentoInput" class="mdb-select">
+                                            <option selected>Seleccionar Departamento</option>
+                                            {% for departamento in departamentos %}
+                                                <option value="{{departamento.0}}">{{departamento.1}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>                            
+                                 
+                                </div>                                
+                         
+                                <div class="md-form">
+                                    <button class="btn btn-primary btn-block">
+                                        Crear Cliente <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

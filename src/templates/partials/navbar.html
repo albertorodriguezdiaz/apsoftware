@@ -1,0 +1,113 @@
+<!--Navbar -->
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark primary-color lighten-1">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="/">Ap Software</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+      aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+      <ul class="navbar-nav mr-auto mx-5">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Inicio
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/clientes">Clientes</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/servicios">Servicios</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/actividades">Actividades</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/departamentos">Departamentos</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/grupotrabajo">Grupo de Trabajo</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/pagos">Pagos</a>
+        </li>
+        
+      </ul>
+  
+  
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <li class="nav-item">
+          <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalFormClientes">Añadir Cliente Nuevo <i class="fas fa-plus"></i></button>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-effect waves-light">1
+            <i class="fas fa-envelope"></i>
+          </a>
+        </li>
+        <li class="nav-item avatar dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0 imgavatar"
+              alt="avatar image">
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+            aria-labelledby="navbarDropdownMenuLink-55">
+            <a class="dropdown-item" href="#">Perfil</a>
+            <a class="dropdown-item" href="#">Cambiar contraseña</a>
+            <a class="dropdown-item" href="#">Soporte</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </nav>
+  <!--/.Navbar -->
+
+
+  
+<div class="modal fade" id="modalFormClientes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header text-center">
+      <h4 class="modal-title w-100 font-weight-bold">Añadir nuevo cliente</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body mx-3">
+      <form action="/create/categorie" method="POST">
+        <div class="md-form mb-5">
+          <i class="fas fa-id-card prefix grey-text"></i>
+          <input type="number" name="id" id="defaultForm-email" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="defaultForm-email">Documento</label>
+        </div>
+
+        <div class="md-form mb-4">
+          <i class="fab fa-codepen prefix grey-text"></i>
+          <input type="text" name="name" id="defaultForm-pass" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="defaultForm-pass">Nombre</label>
+        </div>
+
+        <div class="md-form mb-4">
+          <i class="fas fa-keyboard prefix grey-text"></i>
+          <textarea name="description" id="defaultForm-description" class="md-textarea form-control"></textarea>
+          <label data-error="wrong" data-success="right" for="defaultForm-description">Telefono</label>
+        </div>
+
+        <div class="modal-footer d-flex justify-content-center">
+          <button class="btn btn-default">Crear Cliente <i class="fas fa-plus"></i></button>
+        </div>
+
+      </form>
+
+    </div>
+    
+  </div>
+</div>
+</div>

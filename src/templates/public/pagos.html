@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %} - Pagos {% endblock %}
+
+
+{% block content %}
+    <h1>Pagos</h1>
+
+    , , , , 
+    
+<main id="main">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-lg-12 d-flex">
+                <div id="content-main" class="justify-content-center align-self-center mx-auto my-5">
+                    <div class="card">
+
+                        <div class="card-header text-center">
+                            <h2>Añadir pago</h2>
+                        </div>                       
+                    
+                        <div class="card-body">
+                            <form action="/pagos" method="POST" class="px-5">
+                                <div class="md-form row">
+                                    <div class="col-lg-6">
+                                        <input type="number" name="idPagos" class="form-control" id="codeInput" required autofocus>
+                                        <label for="codeInput">Id de pago</label>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input type="number" name="monto" class="form-control" id="montoInput" required autofocus>
+                                        <label for="montoInput">Monto</label>
+                                    </div>                                    
+                                    <div class="col-lg-12">
+                                        <input type="text" name="concepto" class="form-control" id="conceptoInput" required autofocus>
+                                        <label for="conceptoInput">Concepto</label>
+                                    </div>                                    
+                     
+                                    <div class="col-lg-6 md-form text-center">
+                                        <select name="Servicios_idServicio" id="servicioInput" class="mdb-select">
+                                            <option selected>Seleccionar servicio</option>
+                                            {% for servicio in servicios %}
+                                                <option value="{{servicio.0}}">{{servicio.1}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>                            
+                                    <div class="col-lg-6 md-form text-center">
+                                        <select name="Clientes_docIdentidad" id="clienteInput" class="mdb-select">
+                                            <option selected>Seleccionar Cliente</option>
+                                            {% for cliente in clientes %}
+                                                <option value="{{cliente.0}}">{{cliente.1}} - {{cliente.2}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>                            
+                                 
+                                </div>                                
+                         
+                                <div class="md-form">
+                                    <button class="btn btn-primary btn-block">
+                                        Crear Cliente <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+<section>
+    <h1>Listado de Pagos</h1>
+    <div class="container">
+        <div class="row">
+            <table class="table table-hover table-fixed">
+                <thead>
+                  <tr>
+                    <th>Nombre de Cliente</th>
+                    <th>Monto pagado</th>
+                  </tr>
+                </thead>
+            
+                <tbody>
+                 {% for pago in pagos %}  
+                  <tr>
+                    <td>{{pago.0}}</td>
+                    <td>${{pago.1}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>  
+              
+              </table>
+            
+        </div>
+    </div>
+</section>
+
+{% endblock %}
