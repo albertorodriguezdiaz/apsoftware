@@ -5,9 +5,10 @@ from src.db import mysql
 
 class IndexController(MethodView):
     def get(self):
-        return render_template('public/index.html')
-
-
+        with mysql.cursor() as cur:
+            cur.execute("SELECT * FROM departamento")
+            departamentos = cur.fetchall()
+            return render_template('public/index.html', departamentos=departamentos)
 
 
 
